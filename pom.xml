@@ -86,6 +86,7 @@
 		<module>csparql-sparql-sesame</module>
 		<module>csparql-core</module>
 		<module>csparql-ui</module>
+		<module>csparql-sparql-parliament</module>
 	</modules>
 
 	<dependencyManagement>

@@ -101,11 +101,11 @@ public class JenaEngine implements SparqlEngine {
 	//	private String entailmentRegimeType = null;
 	//	private String tBoxFileSerialization = null;
 
-	private Model model = null;
+	protected Model model = null;
 
 	Map<String, Model> graphs = new HashMap<String, Model>();
 
-	Map<Statement,Long> timestamps = new HashMap<Statement,Long>();
+	protected Map<Statement,Long> timestamps = new HashMap<Statement,Long>();
 
 	private boolean performTimestampFunction = false;
 
@@ -342,6 +342,7 @@ public class JenaEngine implements SparqlEngine {
 		//		} catch (Exception e) {
 		//		}
 
+		logger.debug(table.toString());
 		return table;
 	}
 

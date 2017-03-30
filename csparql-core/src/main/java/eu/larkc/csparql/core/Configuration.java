@@ -52,7 +52,8 @@ public class Configuration {
    
    private final String cepEngineName = "eu.larkc.csparql.cep.esper.EsperEngine";
    private final String reasonerName = "eu.larkc.csparql.core.engine.TransparentReasoner";
-   private final String sparqlEngineName = "eu.larkc.csparql.sparql.jena.JenaEngine";
+   //private final String sparqlEngineName = "eu.larkc.csparql.sparql.jena.JenaEngine";
+   private final String sparqlEngineName = "be.ugent.idlab.caprads.csparql.sparql.parliament.ParliamentEngine";
    private final String cepQueryName = "eu.larkc.csparql.cep.esper.EsperQuery";
    private final String sparqlQueryName = "eu.larkc.csparql.sparql.sesame.SesameQuery";
    private final String translatorName = "eu.larkc.csparql.core.new_parser.utility_files.CSparqlTranslator";

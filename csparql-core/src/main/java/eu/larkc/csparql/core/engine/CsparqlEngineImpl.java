@@ -151,7 +151,7 @@ public class CsparqlEngineImpl implements Observer, CsparqlEngine {
 	}
 
 	public void setPerformTimestampFunctionVariable(boolean value) {
-		if (sparqlEngine.getEngineType().equals("jena")) {
+		if (sparqlEngine.getEngineType().equals("jena") || sparqlEngine.getEngineType().equals("parliament")) {
 			JenaEngine je = (JenaEngine) sparqlEngine;
 			je.setPerformTimestampFunctionVariable(value);
 		}
@@ -383,6 +383,25 @@ public class CsparqlEngineImpl implements Observer, CsparqlEngine {
             logger.debug("RDFS reasoner");
             Resource config = ModelFactory.createDefaultModel().createResource().addProperty(ReasonerVocabulary.PROPsetRDFSLevel, "simple");
             com.hp.hpl.jena.reasoner.Reasoner reasoner = RDFSRuleReasonerFactory.theInstance().create(config);
+            
+			try {
+				reasoner = reasoner.bindSchema(ModelFactory.createDefaultModel().read(new StringReader(tBoxFileSerialization), null, "RDF/XML"));
+			} catch (Exception e) {
+				try {
+					reasoner = reasoner.bindSchema(ModelFactory.createDefaultModel().read(new StringReader(tBoxFileSerialization), null, "N-TRIPLE"));
+				} catch (Exception e1) {
+					try {
+						reasoner = reasoner.bindSchema(ModelFactory.createDefaultModel().read(new StringReader(tBoxFileSerialization), null, "TURTLE"));
+					} catch (Exception e2) {
+						try {
+							reasoner = reasoner.bindSchema(ModelFactory.createDefaultModel().read(new StringReader(tBoxFileSerialization), null, "RDF/JSON"));
+						} catch (Exception e3) {
+							logger.error(e.getMessage(), e3);
+						}
+					}
+				}
+			}
+            
             sparqlEngine.addReasonerToReasonerMap(query.getSparqlQuery().getId(), reasoner);
         }
 

@@ -91,5 +91,10 @@
 			<artifactId>csparql-sparql-sesame</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>eu.larkc.csparql</groupId>
+			<artifactId>csparql-sparql-parliament</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>
