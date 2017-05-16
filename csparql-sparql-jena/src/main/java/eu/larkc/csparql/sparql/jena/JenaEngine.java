@@ -342,7 +342,6 @@ public class JenaEngine implements SparqlEngine {
 		//		} catch (Exception e) {
 		//		}
 
-		logger.debug(table.toString());
 		return table;
 	}
 
