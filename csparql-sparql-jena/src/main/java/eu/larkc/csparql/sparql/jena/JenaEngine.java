@@ -322,7 +322,7 @@ public class JenaEngine implements SparqlEngine {
 
 		long endTS = System.currentTimeMillis();
 
-		Object[] object = new Object[6];
+		Object[] object = new Object[7];
 
 		object[0] = query.getId();
 		object[1] = (endTS - startTS);
@@ -330,9 +330,10 @@ public class JenaEngine implements SparqlEngine {
 		object[3] = Memory.getTotalMemory();
 		object[4] = Memory.getFreeMemory();
 		object[5] = Memory.getMemoryUsage();
+		object[6] = this.model.size();
 
 		logger.debug("Information about execution of query {} \n Execution Time : {} \n Results Number : {} \n Total Memory : {} mb \n " +
-				"Free Memory : {} mb \n Memory Usage : {} mb", object);
+				"Free Memory : {} mb \n Memory Usage : {} mb \n Size Model : {} statements", object);
 
 		//		System.out.println(endTS - startTS);
 		//		try {
