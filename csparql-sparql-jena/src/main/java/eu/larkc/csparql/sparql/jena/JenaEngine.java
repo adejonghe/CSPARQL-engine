@@ -35,10 +35,7 @@
 package eu.larkc.csparql.sparql.jena;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.text.ParseException;
@@ -339,18 +336,15 @@ public class JenaEngine implements SparqlEngine {
 				"Free Memory : {} mb \n Memory Usage : {} mb \n Size Model : {} statements", object);
 
 		try {
-			
-			String fileName = query.getId();
-			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/csv/" + fileName + ".csv", true)));
-			
+						
 			StringBuffer buffer = new StringBuffer();
+			buffer.append("EVAL;");
 			for (Object o: object) {
 				buffer.append(o.toString());
 				buffer.append(';');
 			}			
 			
-		    out.println(buffer.toString());
-		    out.close();
+			logger.info(buffer.toString());
 		    
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
