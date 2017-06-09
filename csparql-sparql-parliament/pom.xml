@@ -96,9 +96,9 @@
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
-			<version>1.13</version>
+			<version>1.11</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/jts-1.13.jar</systemPath>
+			<systemPath>${basedir}/lib/jts-1.11.jar</systemPath>
 		</dependency>	
  	 
 	</dependencies>
